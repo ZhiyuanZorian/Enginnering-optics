@@ -1,0 +1,26 @@
+clear;
+c=3e+8;
+lamd=5e-7;
+T=lamd/c;
+%以上设置光的参数；
+t=linspace(0,T,1000);
+z=linspace(0,5,1000);
+w=2*pi/T;
+k=2*pi/lamd;
+%计算波数以及角频率
+eox=10;
+eoy=5;
+%振幅
+fx=0;
+i=1;
+for fy=0:pi/4:7*pi/4
+    ex=eox*cos(w*t+k*z);
+    ey=eoy*cos(w*t+k*z+fy);
+    subplot(2,4,i);
+    i=i+1;
+    plot(ex,ey);
+    n=i-2;
+    xlabel('x');
+    ylabel('y');
+    title(['fy-fx=',num2str(n),'*pi/4']);
+end
